@@ -29,4 +29,8 @@ lista_nomes.remove("pizza")
 print("\nLista de nomes final (deve estar vazia):")
 print(lista_nomes)
 
-
+#lista_nomes.append'("pizza")
+#lista_nomes.remove("pizza")
+#lista_nomes.insert(0,"joao")
+lista_nomes.pop(1)
+print(lista_nomes)
