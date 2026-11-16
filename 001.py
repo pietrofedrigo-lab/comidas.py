@@ -1,36 +1,28 @@
-# 1. Definição do cardápio
-itens_de_comidas_do_cardapio = ['pizza', 'bolo', 'salgado', 'hamburguer']
-itens_de_bebida_cardapio = ['suco', 'refrigerante', 'água', 'café']
+# Listas exigidas no desafio
+itens = ["pizza", "suco", "bolo", "refrigerante"]
+precos = [10, 5, 7, 8]
+total_compra = 0
 
-# Adicionando novos itens sem repetir o que já existia na lista
-itens_de_comidas_do_cardapio.append('pastel')
-itens_de_comidas_do_cardapio.append('coxinha')
+print("--- Cardápio da Cantina ---")
+# Mostrar os itens do cardápio e os seus preços
+for i in range(len(itens)):
+    print(f"{i} - {itens[i]}: R$ {precos[i]}")
 
-# Junta comidas e bebidas em uma lista só
-cardapio_completo = itens_de_comidas_do_cardapio + itens_de_bebida_cardapio
+# Estrutura de repetição condicional (while)
+while True:
+    escolha = int(input("\nEscolha o número do item (ou -1 para encerrar): "))
 
-print("Cardápio completo atualizado:")
-print(cardapio_completo)
+    # Encerrar a escolha ao digitar -1
+    if escolha == -1:
+        break
+    
+    # Validar se o número digitado existe no cardápio
+    if 0 <= escolha < len(itens):
+        # Somar o valor de cada item escolhido
+        total_compra += precos[escolha]
+        print(f"-> {itens[escolha]} adicionado(a) com sucesso!")
+    else:
+        print("-> Opção inválida. Digite um número válido do cardápio.")
 
-# 2. Pergunta ao usuário
-item_desejado = input("\nO que você quer comer ou beber hoje? ").strip().lower()
-
-# Verifica se o item está no cardápio
-if item_desejado in cardapio_completo:
-    print(f"Sua escolha '{item_desejado}' está no cardápio!")
-else:
-    print(f"O item '{item_desejado}' não está no cardápio.")
-
-# 3. Teste de manipular a lista de nomes
-lista_nomes = []
-lista_nomes.append("pizza")
-lista_nomes.remove("pizza")
-
-print("\nLista de nomes final (deve estar vazia):")
-print(lista_nomes)
-
-#lista_nomes.append'("pizza")
-#lista_nomes.remove("pizza")
-#lista_nomes.insert(0,"joao")
-lista_nomes.pop(1)
-print(lista_nomes)
+# Mostrar o valor total da compra
+print(f"\nO valor total da sua compra é: R$ {total_compra}")
